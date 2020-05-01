@@ -1,5 +1,4 @@
 class Player
-
   attr_reader :name, :hitpoints
   DEFAULT_HP = 60
 
@@ -10,9 +9,5 @@ class Player
 
   def recieve_damage
     @hitpoints -= 10
-  end
-
-  def attack(player)
-    player.recieve_damage
   end
 end

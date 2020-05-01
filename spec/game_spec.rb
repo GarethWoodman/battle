@@ -36,4 +36,12 @@ describe Game do
       expect(game.opposing_player).to eq player_2
     end
   end
+
+  describe '#player_lost' do
+    it 'returns true if a player has 0 HP' do
+      player_1.stub(:hitpoints) { 0 }
+      player_2.stub(:hitpoints) { 10 }
+      expect(game.player_lost?).to eq true
+    end
+  end
 end

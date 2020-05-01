@@ -25,7 +25,13 @@ class Battle < Sinatra::Base
   post '/attack' do
     $game.attack($game.opposing_player)
     $game.switch_turns
+    redirect '/end_game' if $game.player_lost?
     redirect '/play'
+  end
+
+  get '/end_game' do
+    @game = $game
+    erb :end_game
   end
 
   # start the server if ruby file executed directly
